@@ -1,13 +1,15 @@
 
 ```mermaid
 flowchart TD
-    A[Start] --> B[Check if str1.length == str2.length]
+    A[Start] --> B[Check if str1 length equals str2 length]
     B -->|No| Z[Return false]
     B -->|Yes| C[Create empty map {}]
-    C --> D[Loop through str1: map[ch]++]
-    D --> E[Loop through str2: map[ch]--]
-    E -->|map[ch] < 0 or missing| Z[Return false]
-    E --> F[After loop, all counts are zero?]
-    F -->|Yes| G[Return true]
-    F -->|No| Z
+    C --> D[Loop through str1 and increment map[ch]]
+    D --> E[Loop through str2 and decrement map[ch]]
+    E --> F{map[ch] missing or < 0?}
+    F -->|Yes| Z[Return false]
+    F -->|No| G[Continue]
+    G --> H{All counts are zero?}
+    H -->|Yes| I[Return true]
+    H -->|No| Z[Return false]
     ```
