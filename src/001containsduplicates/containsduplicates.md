@@ -383,6 +383,3 @@ function check(a) {
 
 ---
 
-**Last Updated:** November 2024  
-**Author:** Algorithm Visualization Project  
-**License:** MIT
