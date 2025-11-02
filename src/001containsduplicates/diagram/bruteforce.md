@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     Start([Start]) --> Input[Input: arr array]
     Input --> InitI[i = 0]
@@ -28,3 +29,4 @@ flowchart TD
     style CheckI fill:#a78bfa,stroke:#8b5cf6,stroke-width:2px,color:#000
     style CheckJ fill:#a78bfa,stroke:#8b5cf6,stroke-width:2px,color:#000
     style Compare fill:#fbbf24,stroke:#f59e0b,stroke-width:3px,color:#000
+```
