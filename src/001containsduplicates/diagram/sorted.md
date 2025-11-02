@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     Start([Start]) --> Input[Input: arr array]
     Input --> CreateCopy[Create copy of arr into sorted]
@@ -36,3 +37,4 @@ flowchart TD
     
     style ReturnTrue fill:#f87171,stroke:#ef4444,stroke-width:2px,color:#fff
     style ReturnFalse fill:#60a5fa,stroke:#3b82f6,stroke-width:2px,color:#fff
+```
