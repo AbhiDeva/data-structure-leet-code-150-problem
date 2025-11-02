@@ -1,7 +1,7 @@
 // 3. HASH SET APPROACH
 // Time Complexity: O(n)
 // Space Complexity: O(n)
-function containsDuplicatesHashSet(arr) {
+export default function containsDuplicatesHashSet(arr) {
   const seen = new Set();
   
   for (let num of arr) {
