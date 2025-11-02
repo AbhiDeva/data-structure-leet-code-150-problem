@@ -1,3 +1,4 @@
+```merimaid
 flowchart TD
     Start([Start]) --> Input[Input: arr array]
     Input --> InitSet[Create empty Set: seen = new Set]
@@ -33,6 +34,7 @@ flowchart TD
     
     style GetNum fill:#60a5fa,stroke:#3b82f6,stroke-width:2px,color:#fff
     style AddToSet fill:#34d399,stroke:#10b981,stroke-width:2px,color:#000
-    
+
+```
     style ReturnTrue fill:#f87171,stroke:#ef4444,stroke-width:2px,color:#fff
     style ReturnFalse fill:#60a5fa,stroke:#3b82f6,stroke-width:2px,color:#fff
