@@ -10,7 +10,7 @@
  * Time Complexity : O(n).
  * Space Complexity : O(1) (fixed array of size 26)
  */
-function isAnagramArray(str1, str2) {
+export default function isAnagramArray(str1, str2) {
   // Different lengths can't be anagrams
   if (str1.length !== str2.length) {
     return false;

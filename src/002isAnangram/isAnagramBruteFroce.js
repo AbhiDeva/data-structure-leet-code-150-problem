@@ -2,7 +2,7 @@
 // Time Complexity: O(n²)
 // Space Complexity: O(n)
 
-function isAnagramBruteForce(str1, str2) {
+export default function isAnagramBruteForce(str1, str2) {
   // Different lengths can't be anagrams
   if (str1.length !== str2.length) {
     return false;

@@ -11,7 +11,7 @@
  * Space: O(1) (since alphabet size is fixed — at most 26 or 128 depending on charset)
  */
 
-function isAnagramHashMap(str1, str2) {
+export default function isAnagramHashMap(str1, str2) {
   // Different lengths can't be anagrams
   if (str1.length !== str2.length) {
     return false;

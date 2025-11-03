@@ -2,7 +2,7 @@
 // Time Complexity: O(n²) - indexOf is O(n), splice is O(n), inside loop
 // Space Complexity: O(n) - creates array copy
 
-function isAnagramQuadratic(str1, str2) {
+export default function isAnagramQuadratic(str1, str2) {
   // Different lengths cannot be anagrams
   if (str1.length !== str2.length) {
     return false;
