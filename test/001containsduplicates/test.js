@@ -10,6 +10,8 @@ import isAnagramBruteForce from '../../src/002isAnangram/isAnagramBruteFroce.js'
 import isAnagramHashMap from '../../src/002isAnangram/isAnagramHash.js';
 import isAnagramBruteSorted from '../../src/002isAnangram/isAnagramSorted.js';
 
+import { twoSumTwoPassMap, twoSumBruteForce, twoSumSorted , twoSumSlidingWindow, twoSumBinarySearch, twoSumSet, twoSumHashMap} from '../../src/003twosum/twosum.js';
+import { twoSumAllBruteForce, twoSumAllSorted, twoSumAllSet, twoSumAllBinarySearch, twoSumAllHashMap, twoSumAllSlidingWindow,  twoSumAllTwoPassMap} from '../../src/003twosum/twosumallindexes.js'
 import { performance } from 'perf_hooks';
 
 
@@ -83,3 +85,40 @@ console.log('Sorted:', benchmark(isAnagramBruteSorted, test1a, test1b), 'ms');
 console.log('HashMap:', benchmark(isAnagramHashMap, test1a, test1b), 'ms');
 console.log('Array[26]:', benchmark(isAnagramArray, test1a, test1b), 'ms');
 console.log('ForLoop:', benchmark(isAnagramBruteForce, test1a, test1b), 'ms');
+
+let array = [1,1,2,3,3,4,5,5,6,6,7,9,];
+let target = 8
+
+console.log('BruteForceLoop:', benchmark(twoSumBruteForce, array, target), 'ms');
+console.log('SumSorted+Pointer', benchmark(twoSumSorted,array, target), 'ms');
+console.log('HashMap',benchmark(twoSumHashMap,array, target), 'ms');
+console.log('HashSet', benchmark(twoSumSet, array, target), 'ms');
+console.log('HashMapTwoPointer', benchmark(twoSumTwoPassMap,array, target), 'ms');
+console.log('BinarySearch', benchmark(twoSumBinarySearch, array, target), 'ms');
+console.log('SlidingWindow', benchmark(twoSumSlidingWindow, array, target), 'ms');
+
+console.log(twoSumBruteForce(array, target));
+console.log(twoSumSorted(array, target));
+console.log(twoSumHashMap(array, target));
+console.log(twoSumSet(array, target));
+console.log(twoSumTwoPassMap(array,target));
+console.log(twoSumBinarySearch(array, target));
+console.log(twoSumSlidingWindow(array, target));
+
+
+console.log('BruteForceLoop:', benchmark(twoSumAllBruteForce, array, target), 'ms');
+console.log('SumSorted+Pointer', benchmark(twoSumAllSorted,array, target), 'ms');
+console.log('HashMap',benchmark(twoSumAllHashMap,array, target), 'ms');
+console.log('HashSet', benchmark(twoSumAllSet, array, target), 'ms');
+console.log('HashMapTwoPointer', benchmark(twoSumAllTwoPassMap,array, target), 'ms');
+console.log('BinarySearch', benchmark(twoSumAllBinarySearch, array, target), 'ms');
+console.log('SlidingWindow', benchmark(twoSumAllSlidingWindow, array, target), 'ms');
+
+console.log(twoSumAllBruteForce(array, target));
+console.log(twoSumAllSorted(array, target));
+console.log(twoSumAllHashMap(array, target));
+console.log(twoSumAllSet(array, target));
+console.log(twoSumAllTwoPassMap(array,target));
+console.log(twoSumAllBinarySearch(array, target));
+console.log(twoSumAllSlidingWindow(array, target));
+
