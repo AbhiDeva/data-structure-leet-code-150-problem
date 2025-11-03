@@ -1,22 +1,26 @@
 # Choose Approach 
 
 ```mermaid
-START: Need to solve Two Sum?
-│
-├─ Is array already sorted?
-│  ├─ YES → Need original indices?
-│  │  ├─ NO → Use SLIDING WINDOW ⭐⭐ (O(n), O(1))
-│  │  └─ YES → Use TWO POINTER ✓ (O(n log n), O(n))
-│  │
-│  └─ NO → What do you need?
-│     ├─ Just boolean (exists?) → Use SET ✓ (O(n), O(n))
-│     ├─ Actual indices → Is this production code?
-│     │  ├─ YES → Use HASH MAP ⭐ (O(n), O(n))
-│     │  └─ NO → Learning?
-│     │     ├─ YES → Start with BRUTE FORCE, then optimize
-│     │     └─ NO → Use HASH MAP ⭐ (safest choice)
-│     │
-│     └─ Batch processing? → Use TWO-PASS MAP ✓ (O(n), O(n))
-│
-END: Implement chosen approach
+flowchart TD
+    A([Start: Need to solve Two Sum?]) --> B{Is array already sorted?}
+    
+    B -->|Yes| C{Need original indices?}
+    C -->|No| D[Use SLIDING WINDOW ⭐⭐ <br> O(n) time, O(1) space]
+    C -->|Yes| E[Use TWO POINTER ✓ <br> O(n log n) time, O(n) space]
+
+    B -->|No| F{What do you need?}
+    F -->|Just boolean (exists?)| G[Use SET ✓ <br> O(n) time, O(n) space]
+    F -->|Actual indices| H{Is this production code?}
+    H -->|Yes| I[Use HASH MAP ⭐ <br> O(n) time, O(n) space]
+    H -->|No| J{Learning or debugging?}
+    J -->|Yes| K[Start with BRUTE FORCE <br> then optimize]
+    J -->|No| I
+
+    F -->|Batch processing?| L[Use TWO-PASS MAP ✓ <br> O(n) time, O(n) space]
+    I --> M([End])
+    D --> M
+    E --> M
+    G --> M
+    K --> M
+    L --> M
 ```
