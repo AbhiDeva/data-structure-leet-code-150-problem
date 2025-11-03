@@ -7,16 +7,16 @@ flowchart TD
     B{Is array already sorted?}:::decision
 
     C{Need original indices?}:::decision
-    D[Use SLIDING WINDOW - O(n) time, O(1) space]:::good
-    E[Use TWO POINTER - O(n log n) time, O(n) space]:::neutral
+    D["Use TWO POINTER - O(n) time, O(1) space"]:::best  <-- FIXED: Added quotes
+    E["Sort + TWO POINTER - O(n log n) time, O(n) space"]:::neutral  <-- FIXED: Added quotes
 
     F{What do you need?}:::decision
     G[Use SET - O(n) time, O(n) space]:::neutral
-    H{Is this production code?}:::decision
-    I[Use HASH MAP - O(n) time, O(n) space]:::best
+    H{Is finding indices critical?}:::decision
+    I[Use HASH MAP (One-Pass) - O(n) time, O(n) space]:::best
     J{Learning or debugging?}:::decision
-    K[Start with BRUTE FORCE - Then optimize]:::bad
-    L[Use TWO-PASS MAP - O(n) time, O(n) space]:::neutral
+    K[Start with BRUTE FORCE - O(n^2) time]:::bad
+    L[Use HASH MAP (Two-Pass) - O(n) time, O(n) space]:::neutral
 
     M([End]):::end
 
@@ -28,7 +28,7 @@ flowchart TD
     C -->|Yes| E
     F -->|Just boolean (exists?)| G
     F -->|Actual indices| H
-    F -->|Batch processing?| L
+    F -->|Alternative approach| L
     H -->|Yes| I
     H -->|No| J
     J -->|Yes| K
