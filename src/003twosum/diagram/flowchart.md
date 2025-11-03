@@ -187,3 +187,32 @@ flowchart TD
     style Pass1 fill:#60a5fa,stroke:#3b82f6,stroke-width:2px,color:#fff
     style Pass2 fill:#fbbf24,stroke:#f59e0b,stroke-width:2px,color:#000
 ```
+
+# SLIDING WINDOW (Sorted Array Only)
+```mermaid
+flowchart TD
+    Start([Start]) --> Input["Input: SORTED nums, target<br/>⚠️ Must be sorted!"]
+    Input --> Init["left = 0<br/>right = length - 1"]
+    
+    Init --> Loop{"left < right?"}
+    Loop -->|No| NotFound[Return empty]
+    Loop -->|Yes| CalcSum["sum = nums left + nums right"]
+    
+    CalcSum --> CheckSum{"sum == target?"}
+    CheckSum -->|Yes| Found["Return left, right"]
+    CheckSum -->|No| Compare{"sum < target?"}
+    
+    Compare -->|Yes| MoveLeft["left++<br/>Need larger sum"]
+    Compare -->|No| MoveRight["right--<br/>Need smaller sum"]
+    
+    MoveLeft --> Loop
+    MoveRight --> Loop
+    
+    Found --> End([End: Solution Found])
+    NotFound --> End2([End: No Solution])
+    
+    style Start fill:#10b981,stroke:#059669,stroke-width:3px,color:#fff
+    style End fill:#22c55e,stroke:#16a34a,stroke-width:3px,color:#fff
+    style End2 fill:#ef4444,stroke:#dc2626,stroke-width:3px,color:#fff
+    style Compare fill:#fbbf24,stroke:#f59e0b,stroke-width:2px,color:#000
+```
