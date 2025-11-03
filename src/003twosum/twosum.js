@@ -26,11 +26,11 @@ export function twoSumBruteForce(nums, target) {
       }
     }
   }
-  return null; // no pair found
+  return []; // no pair found
 }
 
 /*
-* Idea: Brute Force Approach
+* Idea: Sorting + TWO POINTER
 * Sort the array (but remember sorting changes indices).
 * Use two pointers (left, right) to find a pair that sums to the target.
 * If sum < target, move left++; if sum > target, move right--.
@@ -40,15 +40,15 @@ export function twoSumBruteForce(nums, target) {
 export function twoSumSorted(nums, target) {
   // Keep original indices
   const arr = nums.map((num, index) => [num, index]);
-  arr.sort((a, b) => a[0] - b[0]); // sort by value
+  arr.sort((a, b) => a.num - b.num); // sort by value
 
   let left = 0;
   let right = arr.length - 1;
 
   while (left < right) {
-    const sum = arr[left][0] + arr[right][0];
+    const sum = arr[left].num + arr[right].num;
     if (sum === target) {
-      return [arr[left][1], arr[right][1]]; // return original indices
+      return [arr[left].index, arr[right].index]; // return original indices
     } else if (sum < target) {
       left++;
     } else {
@@ -56,7 +56,7 @@ export function twoSumSorted(nums, target) {
     }
   }
 
-  return null;
+  return [];
 }
 
 /***
@@ -80,7 +80,7 @@ export function twoSumHashMap(nums, target) {
     map.set(nums[i], i);
   }
 
-  return null;
+  return [];
 }
 
 /***
@@ -109,20 +109,29 @@ export function twoSumSet(nums, target) {
  */
 
 export function twoSumBinarySearch(nums, target) {
-  nums.sort((a, b) => a - b);
+  // Create array with original indices
+  const arr = nums.map((num, index) => ({ num, index }));
+  arr.sort((a, b) => a.num - b.num);
 
-  for (let i = 0; i < nums.length; i++) {
-    const complement = target - nums[i];
-    let left = i + 1, right = nums.length - 1;
+  for (let i = 0; i < arr.length; i++) {
+    const complement = target - arr[i].num;
+    let left = i + 1;
+    let right = arr.length - 1;
 
     while (left <= right) {
       const mid = Math.floor((left + right) / 2);
-      if (nums[mid] === complement) return true;
-      if (nums[mid] < complement) left++;
-      else right--;
+      
+      if (arr[mid].num === complement) {
+        return [arr[i].index, arr[mid].index];
+      } else if (arr[mid].num < complement) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
     }
   }
-  return false;
+
+  return [];
 }
 
 /**
@@ -147,7 +156,7 @@ export function twoSumBinarySearch(nums, target) {
     }
   }
 
-  return null;
+  return [];
 }
 
 /***
@@ -168,10 +177,9 @@ export function twoSumSlidingWindow(nums, target) {
     else right--;
   }
 
-  return null;
+  return [];
 }
 
-//export default { twoSumTwoPassMap, twoSumBruteForce, twoSumSorted , twoSumSlidingWindow, twoSumBinarySearch, twoSumSet, twoSumHashMap };
 
 
 
