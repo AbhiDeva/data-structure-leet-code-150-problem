@@ -12,18 +12,38 @@
  */
 
 function isAnagramHashMap(str1, str2) {
-  if (str1.length !== str2.length) return false;
-
-  const map = {};
-
-  for (let ch of str1) {
-    map[ch] = (map[ch] || 0) + 1;
+  // Different lengths can't be anagrams
+  if (str1.length !== str2.length) {
+    return false;
   }
-
-  for (let ch of str2) {
-    if (!map[ch]) return false;
-    map[ch]--;
+  
+  // Create frequency map
+  const charCount = new Map();
+  
+  // Count characters in str1
+  for (let char of str1.toLowerCase()) {
+    charCount.set(char, (charCount.get(char) || 0) + 1);
   }
-
+  
+  // Subtract characters from str2
+  for (let char of str2.toLowerCase()) {
+    if (!charCount.has(char)) {
+      return false; // Character not in str1
+    }
+    
+    charCount.set(char, charCount.get(char) - 1);
+    
+    if (charCount.get(char) < 0) {
+      return false; // Too many of this character
+    }
+  }
+  
+  // Check all counts are zero
+  for (let count of charCount.values()) {
+    if (count !== 0) {
+      return false;
+    }
+  }
+  
   return true;
 }
