@@ -3,22 +3,22 @@
 ```mermaid
 flowchart TD
     %% --- Nodes ---
-    A([🟢 Start: Need to solve Two Sum?]):::start
+    A([Start: Need to solve Two Sum?]):::start
     B{Is array already sorted?}:::decision
     
     C{Need original indices?}:::decision
-    D[[Use SLIDING WINDOW\nO(n) time, O(1) space]]:::good
-    E[[Use TWO POINTER\nO(n log n) time, O(n) space]]:::neutral
+    D[Use SLIDING WINDOW<br/>O(n) time, O(1) space]:::good
+    E[Use TWO POINTER<br/>O(n log n) time, O(n) space]:::neutral
     
     F{What do you need?}:::decision
-    G[[Use SET\nO(n) time, O(n) space]]:::neutral
+    G[Use SET<br/>O(n) time, O(n) space]:::neutral
     H{Is this production code?}:::decision
-    I[[Use HASH MAP\nO(n) time, O(n) space]]:::best
+    I[Use HASH MAP<br/>O(n) time, O(n) space]:::best
     J{Learning or debugging?}:::decision
-    K[[Start with BRUTE FORCE\nThen optimize]]:::bad
-    L[[Use TWO-PASS MAP\nO(n) time, O(n) space]]:::neutral
+    K[Start with BRUTE FORCE<br/>Then optimize]:::bad
+    L[Use TWO-PASS MAP<br/>O(n) time, O(n) space]:::neutral
     
-    M([🏁 End]):::end
+    M([End]):::end
 
     %% --- Connections ---
     A --> B
